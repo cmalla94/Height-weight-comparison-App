@@ -1,0 +1,48 @@
+<head>
+	<style type="text/css">
+	.p{border: solid;}
+	</style>
+
+</head>
+<!---THE FOLLOWING IS CODE FOR BOOTSTRAP NAVBAR ELEMENT -->
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+			 	<span class="icon-bar"></span>
+			 	<span class="icon-bar"></span>
+			 	<span class="icon-bar"></span>
+		 	</button>
+			<a class="navbar-brand" href="#"> All Profiles </a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	</div>
+</nav>
+<!--- DONE -------------------------------------------------->
+<%= link_to 'New Profile', new_person_path %>
+
+
+
+<script> var i = 0; var x_pos = 0; y_pos = 100; </script>
+<!--ruby for loop to out put a profile on each row with attributes in the columns -->
+	<% @persons.each do |person| %>
+
+		<script>
+
+			document.getElementsByClassName('box')[i].style.position = "absolute";
+			document.getElementsByClassName('box')[i].style.left = x_pos + "px";
+			document.getElementsByClassName('box')[i].style.top = y_pos + "px";
+			x_pos = x_pos + <%= person.weight %> +50;
+			document.getElementsByClassName('p')[i].style.borderWidth = <%= person.weight %>/10 + "px";
+			i = i + 1;
+		</script>
+
+		<div class='box'><span class='p'><%=person.name%><span>
+		<button><%= link_to 'edit', edit_person_path(person) %></button>
+		<span><button><%= link_to 'Show', show_person_path(person) %></button>
+		</span>
+		</span>
+		</span></div>
+
+	<% end %>
