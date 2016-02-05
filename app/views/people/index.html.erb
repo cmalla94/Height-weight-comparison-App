@@ -1,0 +1,60 @@
+<!-- CSS STYLE FOR THE BORDER OF SPAN -->
+<head>
+<style type="text/css">
+  .person{border: solid 1px #666; float: left}
+  .box_pos{margin: 10px}
+</style>
+</head>
+
+<!--- DONE WITH CSS STYLE -->
+<!-- TWITTER BOOTSTRAP NAV BAR CODE -->
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <p class="navbar-text navbar-right">Want to create a new profile?
+        <button type="button" class="btn btn-success"> <%= link_to 'Create New', new_person_path %> </button></p>
+  </div>
+</nav>
+<!-- MAIN BODY --->
+
+
+
+<!-- JAVASCRIPT VAR DECLARATIONS and function TO BE USED IN THE LOOP -->
+<script>
+  var i = 0; var x_pos = 50; var y_pos = 125;
+  //I did not write this function, source: http://stackoverflow.com/questions/7676951/how-to-put-spacing-between-floating-divs
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+</script>
+
+<!-- LOOPING THROUGH EACH PROFILE -->
+
+<% @people.each do |person| %>
+  <div class="box_pos">
+    <span class="person">
+      <%= person.name %>
+      <%= link_to "View", person_path(person) %>
+    </span>
+
+  </div>
+
+  <!-- JAVASCRIPT FOR STYLING THE BOXES -->
+  <script>
+    document.getElementsByClassName('person')[i].style.borderWidth = <%= person.weight %>/15 + "px";
+    document.getElementsByClassName('person')[i].style.borderColor = getRandomColor();
+    //document.getElementsByClassName('box_pos')[i].style.position = "absolute";
+    //document.getElementsByClassName('box_pos')[i].style.left = x_pos + "px";
+    //document.getElementsByClassName('box_pos')[i].style.top = y_pos + "px";
+    //x_pos = x_pos + <%= person.weight %>;
+    //y_pos = y_pos + <%= person.weight %>;
+    i = i + 1;
+  </script>
+
+<% end %>

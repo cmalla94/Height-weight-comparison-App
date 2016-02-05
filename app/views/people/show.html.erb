@@ -1,0 +1,26 @@
+<!--- Showing peoples profile html -->
+
+<p>
+  <strong> Name: </strong>
+  <%= @person.name %>
+</p>
+<p>
+  <strong> City: </strong>
+  <%= @person.city %>
+</p>
+<p>
+  <strong> Country: </strong>
+  <%= @person.country %>
+</p>
+<p>
+  <strong> Weight: </strong>
+  <%= @person.weight %>
+</p>
+<p>
+  <strong> Height: </strong>
+  <%= @person.height %>
+</p>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Destroy', person_path(@person), method: :delete, data: {confirm: 'Are you sure?'} %>
+<%= link_to 'Back', people_path %>
