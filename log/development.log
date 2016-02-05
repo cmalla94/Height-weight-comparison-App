@@ -4176,3 +4176,66 @@ Processing by PeopleController#index as HTML
   [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people"[0m
   Rendered people/index.html.erb within layouts/application (1.2ms)
 Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for ::1 at 2016-02-05 12:12:08 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PeopleController#index as HTML
+  [1m[35mPerson Load (0.4ms)[0m  SELECT "people".* FROM "people"
+  Rendered people/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 289ms (Views: 275.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-05 12:12:09 -0800
+
+
+Started GET "/assets/application.self-55ca7de5486d1b06bc7d75f46083e2dd3cc076235dc1e4dd116a4d5932e90eb9.css?body=1" for ::1 at 2016-02-05 12:12:09 -0800
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-05 12:12:09 -0800
+
+
+Started GET "/assets/bootstrap.self-e7dfe29e9f594eb85eead62e3ed95df169b0fc3d21fe0468a812e399c9fcc604.js?body=1" for ::1 at 2016-02-05 12:12:09 -0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-05 12:12:09 -0800
+
+
+Started GET "/assets/people.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 12:12:09 -0800
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 12:12:09 -0800
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-02-05 12:12:09 -0800
+
+
+Started GET "/people/new" for ::1 at 2016-02-05 12:12:10 -0800
+Processing by PeopleController#new as HTML
+  Rendered people/new.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 53ms (Views: 52.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/people" for ::1 at 2016-02-05 12:12:28 -0800
+Processing by PeopleController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ksJy/jJOu06GXHReLkOU97i6rml6Iu8qAWt9VzHlqsZ4zTQLF7sCzDu+X/oMT1OwfPO2CIagxCAcHpNcSwhv/w==", "person"=>{"name"=>"Nima", "city"=>"Burnaby ", "country"=>"Canada", "weight"=>"130", "height"=>"40"}, "commit"=>"Save Person"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO "people" ("name", "city", "country", "weight", "height", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["name", "Nima"], ["city", "Burnaby "], ["country", "Canada"], ["weight", 130], ["height", 40], ["created_at", "2016-02-05 20:12:28.444646"], ["updated_at", "2016-02-05 20:12:28.444646"]]
+  [1m[36m (12.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/people/2
+Completed 302 Found in 25ms (ActiveRecord: 19.0ms)
+
+
+Started GET "/people/2" for ::1 at 2016-02-05 12:12:28 -0800
+Processing by PeopleController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered people/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 31ms (Views: 23.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for ::1 at 2016-02-05 12:12:30 -0800
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people"[0m
+  Rendered people/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.2ms)
